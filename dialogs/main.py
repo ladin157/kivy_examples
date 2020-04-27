@@ -3,19 +3,20 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.factory import Factory
 from kivy.properties import ObjectProperty
 from kivy.uix.popup import Popup
+from dialogs.dialog import LoadDialog, SaveDialog
 
 import os
 
 
-class LoadDialog(FloatLayout):
-    load = ObjectProperty(None)
-    cancel = ObjectProperty(None)
-
-
-class SaveDialog(FloatLayout):
-    save = ObjectProperty(None)
-    text_input = ObjectProperty(None)
-    cancel = ObjectProperty(None)
+# class LoadDialog(FloatLayout):
+#     load = ObjectProperty(None)
+#     cancel = ObjectProperty(None)
+#
+#
+# class SaveDialog(FloatLayout):
+#     save = ObjectProperty(None)
+#     text_input = ObjectProperty(None)
+#     cancel = ObjectProperty(None)
 
 
 class Root(FloatLayout):
@@ -51,7 +52,7 @@ class Root(FloatLayout):
         self.dismiss_popup()
 
 
-class Editor(App):
+class Main(App):
     pass
 
 
@@ -60,4 +61,4 @@ Factory.register('LoadDialog', cls=LoadDialog)
 Factory.register('SaveDialog', cls=SaveDialog)
 
 if __name__ == '__main__':
-    Editor().run()
+    Main().run()
