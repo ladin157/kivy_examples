@@ -1,0 +1,20 @@
+#:kivy 1.0
+
+<Controller>:
+    label_wid: my_custom_label
+    label_wid: my_custom_label_new
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+
+        Button:
+            text: 'My controller info is: ' + root.info
+            on_press: root.do_action(); root.label_wid.font_size = 18; self.font_size = 20;
+
+        Label:
+            id: my_custom_label
+            text: 'My label before button press'
+        Label:
+            id: my_custom_label_new
+            text: 'My label before button press'

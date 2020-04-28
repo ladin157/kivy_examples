@@ -94,35 +94,13 @@
             size: self.width, 1
 
     BoxLayout:
-        orientation: 'horizontal'
-        Image:
-            #size_hint: 0.1
-            source: 'data/icon.png'
-            mipmap: True
-            size_hint_x: None
-            width: self.height
-        #Button:
-        #    size_hint_x: 0.1
-        #   pos_hint_x: {'x':0.2, 'top':0.2}
-        BoxLayout:
-            orientation: 'vertical'
+        
 
-            #padding: '5dp'
+        padding: '5dp'
 
-            Label:
-                font_size: 16
-                text: root.note_title
-            Label:
-                halign: 'left'
-                font_size: 10
-                text: root.note_content
-                #text: ''
-            Label:
-                halign: 'right'
-                font_size: 10
-                text: root.note_content
-                #text: ''
-
+        Label:
+            text: root.note_title
+            #text: ''
 
         Button:
             text: '>'
