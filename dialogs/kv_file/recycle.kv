@@ -1,0 +1,31 @@
+<RecycleItem>:
+    BoxLayout:
+        orientation: 'horizontal'
+        BoxLayout:
+            size_hint_x: 0.3
+            Image:
+                size: self.texture_size
+                source: ''
+        BoxLayout:
+            size_hint_x: 0.7
+            #orientation: 'vertical'
+            BoxLayout: # first row
+                size_hint_y: 0.3
+                CusLabel:
+                    size_hint_x: 0.6
+                    text: root.created_date #'2020/03/03'
+                CusLabel:
+                    size_hint_x: 0.4
+                    text: root.created_time # '12:34'
+
+            BoxLayout: # second row
+                size_hint_y: 0.4
+                CusLabel:
+                    halign: 'center'
+                    text: root.username #'Registered Name'
+
+            BoxLayout: # third row
+                size_hint_y: 0.3
+                CusLabel:
+                    halign: 'right'
+                    text: root.camera #'Camera A'
