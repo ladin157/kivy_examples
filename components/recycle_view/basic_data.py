@@ -8,7 +8,7 @@ from kivy.uix.boxlayout import BoxLayout
 
 kv = """
 <Row@BoxLayout>:
-    canvas.before:
+    graphics.before:
         Color:
             rgba: 0.5, 0.5, 0.5, 1
         Rectangle:
@@ -18,7 +18,7 @@ kv = """
     Label:
         text: root.value
 <Test>:
-    canvas:
+    graphics:
         Color:
             rgba: 0.3, 0.3, 0.3, 1
         Rectangle:

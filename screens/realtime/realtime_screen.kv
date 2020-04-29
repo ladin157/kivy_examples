@@ -1,0 +1,175 @@
+#:import Factory kivy.factory.Factory
+
+<MutableRstDocumentTextInput@MutableTextInput>:
+    RstDocument:
+        id: w_label
+        pos: root.pos
+        text: root.text
+
+    TextInput:
+        id: w_textinput
+        pos: root.pos
+        text: root.log_text
+        multiline: root.multiline
+        #on_focus: root.check_focus_and_view(self)
+
+<SmallLabel@Label>:
+    font_size: 12
+
+<BiggerLabel@Label>:
+    font_size: 16
+
+<RecycleItem>:
+    height: '48sp'
+    size_hint_y: None
+
+    canvas:
+        Color:
+            rgb: .3, .3, .3
+        Rectangle:
+            pos: self.pos
+            size: self.width, 1
+
+    BoxLayout:
+        orientation: 'horizontal'
+        Image:
+            size_hint: 0.8, 0.8
+            source: 'Data/images/icon.png'
+            mipmap: False
+            #size_hint_x: None
+            pos_hint: {'x':0, 'y':0.1}
+            #width: self.height*0.85
+        #Button:
+        #    size_hint_x: 0.1
+        #   pos_hint_x: {'x':0.2, 'top':0.2}
+        BoxLayout:
+            orientation: 'vertical'
+
+            #padding: '5dp'
+            BoxLayout:
+                orientation: 'horizontal'
+                SmallLabel:
+                    size_hint_x: 0.65
+                    #font_size: 16
+                    text: root.created_date
+                SmallLabel:
+                    size_hint_x: 0.35
+                    #font_size: 16
+                    text: root.created_time
+            BiggerLabel:
+                halign: 'left'
+                #font_size: 10
+                text: root.username
+                #text: ''
+            BoxLayout:
+                orientation: 'horizontal'
+                SmallLabel:
+                    text: ''
+                SmallLabel:
+                    halign: 'right'
+                    font_size: 10
+                    text: root.camera
+                    #text: ''
+
+<RealtimeScreen>:
+    #view: view
+    id: root_layout
+    name: "realtime_screen"
+
+    BoxLayout: # main layout
+        orientation: 'horizontal'
+        padding: 20
+        BoxLayout: # left box layout
+            orientation: 'vertical'
+            size_hint_x: 0.7
+            id: layout_main
+            BoxLayout: # top sub box layout
+                orientation: 'horizontal'
+                size_hint_y: 0.07
+                id: layout_switch_cam
+                orientation: 'horizontal'
+                TextInput:
+                    text: 'Cam 1'
+                    size_hint_x: 0.95
+                Button:
+                    id: btn
+                    text: '...'
+                    size_hint_x: 0.05
+
+            #BoxLayout: # the center layout to hold camera
+                #size_hint_y: 0.8
+                #pos_hint: {'x':0.1, 'y':1.2}
+            #    id: layout_cam
+            FloatLayout:
+                #size_hint: 0.9, 0.9
+
+                BoxLayout:
+                    size_hint: 0.9, 0.9
+                    pos_hint: {'x':0.05,'y':0.05}
+                    #Button:
+                    #    text: 'Camera display here'
+                    Camera:
+                        id: camera
+                        allow_stretch: True
+                        index : root_layout.cameraId #1: Plugged camera
+                        resolution: (640, 480) # Camera 1 not support (1280, 720)
+                        play: True
+
+                #Button:
+                #    id: btn_switch
+                #    size_hint: 0.3, 0.06
+                #    pos_hint: {'x':0.65, 'y':0.05}
+                ToggleButton:
+                    text: 'Play/Pause'
+                    pos_hint:{"x":0.65,"y":0.05}
+                    size_hint: 0.3, 0.06
+                    height: '48dp'
+                    on_press: camera.play = not camera.play
+                    on_release: root.play_stop_camera()
+
+            BoxLayout: # the bottom layout
+                id: console_log
+                size_hint_y: 0.1
+                orientation: 'vertical'
+
+                #ScrollView:
+                #    id: view
+                #    do_scroll_x: False
+                #    do_scrool_y: True
+
+
+                ScrollView:
+                    Label:
+                        halign: 'left'
+                        font_size: 12
+                        size_hint: None, None
+                        size: self.texture_size
+                        background_color: 0,0,0,1
+                        foreground_color: 1,1,1,1
+                        multiline: True
+                        text: root.log_text
+                        markup: True
+
+                #TextInput:
+                #    #color: [0, 255, 0, 0]
+                #    font_size: 12
+                #    background_color: 0,0,0,1
+                #    foreground_color: 1,1,1,1
+                #    multiline: True
+                #    text: root.log_text
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.3
+            RecycleView:
+                data: root.data_for_widgets
+                viewclass: 'RecycleItem'
+                RecycleBoxLayout:
+                    default_size: None, dp(56)
+                    default_size_hint: 1, None
+                    size_hint_y: None
+                    height: self.minimum_height
+                    orientation: 'vertical'
+                    spacing: dp(2)
+                #Button:
+                    #text: "LEFT"

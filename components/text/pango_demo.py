@@ -98,7 +98,7 @@ runTouchApp(Builder.load_string('''
         valign: 'middle'
         font_size: '15sp'
         color: 1, 1, 0, 1
-        canvas.before:
+        graphics.before:
             Color:
                 rgba: 1, 1, 1, .5
             Rectangle:
@@ -115,7 +115,7 @@ runTouchApp(Builder.load_string('''
                         root.base_direction or None
         font_size: root.font_size
         text_size: self.width, None
-        canvas.before:
+        graphics.before:
             Color:
                 rgba: 1, 1, 1, .1
             Rectangle:

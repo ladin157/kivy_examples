@@ -2,7 +2,7 @@ KV = '''
 <Box@BoxLayout>:
     bg: 0, 0, 0, 0
     
-    canvas:
+    graphics:
         Color:
             rgba: root.bg
         Rectangle:

@@ -11,7 +11,7 @@ from kivy.uix.recycleview.layout import LayoutSelectionBehavior
 Builder.load_string('''
 <SelectableLabel>:
     # Draw a background to indicate selection
-    canvas.before:
+    graphics.before:
         Color:
             rgba: (.0, 0.9, .1, .3) if self.selected else (0, 0, 0, 1)
         Rectangle:

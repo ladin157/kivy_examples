@@ -61,7 +61,7 @@ KV = '''
             root.height - (box_buttons.height + title.height + dp(48)\
             + sep.height)
 
-        canvas:
+        graphics:
             Rectangle:
                 pos: self.pos
                 size: self.size

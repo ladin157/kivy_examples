@@ -30,7 +30,7 @@ demo = '''
     size_hint_y: None
     height: "42dp"
 
-    canvas:
+    graphics:
         Color:
             rgba: root.color
         Rectangle:

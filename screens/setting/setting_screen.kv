@@ -1,0 +1,207 @@
+#:import Button kivy.uix.button.Button
+<ComboBox>:
+    ComboBox:
+        size_hint: .5, .1
+        pos_hint: {'center':(.5, .5)}
+        options:
+            [Button(text = str(x), size_hint_y=None, height=20) for x in range(3)]
+
+<CusLabel@Label>:
+    font_size: 15
+    size_hint: 0.1, 0.3
+
+<CustextInput@TextInput>:
+    font_size: 16
+    size_hint: 0.15, 0.05
+
+<CusButton@Button>:
+    font_size: 16
+    size_hint: 0.15, 0.05
+
+<CusCheckBox@CheckBox>:
+    font_size: 16
+    size_hint: 0.05, 0.05
+
+<CustomDropDown>:
+    #pos_hint: {'x':0.26, 'top':0.88}
+    Button:
+        text: 'My first Item'
+        size_hint_y: None
+        height: 44
+        on_release: root.select('item1')
+    Label:
+        text: 'Unselectable item'
+        size_hint_y: None
+        height: 44
+    Button:
+        text: 'My second Item'
+        size_hint_y: None
+        height: 44
+        on_release: root.select('item2')
+
+<SettingScreen>:
+    name: 'setting_screen'
+	FloatLayout:
+	    # first row
+	    CusLabel:
+	        text: 'Enable/Disable'
+	        pos_hint: {'x':0.12, 'top':1.1}
+	    CusLabel:
+	        text: 'Observation type'
+	        pos_hint: {'x':0.3, 'top': 1.1}
+
+	    CusLabel:
+	        text: 'Camera'
+	        pos_hint: {'x':0.45, 'top': 1.1}
+
+        CusLabel:
+	        text: 'IP'
+	        pos_hint: {'x':0.6, 'top': 1.1}
+
+        CusLabel:
+	        text: 'Observation time (ms)'
+	        pos_hint: {'x':0.82, 'top': 1.1}
+
+        # second row
+
+        CusLabel:
+            text: 'Observation object 1'
+            pos_hint: {'x':0.05, 'top':1.0}
+
+        CusCheckBox:
+            id: checkbox_1
+            pos_hint: {'x':0.2, 'top':.88}
+
+        #CusButton:
+        #    id: object_1_type
+        #    pos_hint: {'x':0.26, 'top':0.88}
+        #    on_release: root.show_dropdown_object1_type()
+        #    on_touch_move: root.touch_move_cam1()
+
+        ComboEdit:
+            size_hint: .15, .05
+            pos_hint: {'x': .26, 'y': .88}
+            options:
+                [Button(text = str(x), size_hint_y=None, height=30) for x in range(3)]
+
+        #CustextInput:
+        #    id: txtinput_observ_1
+        #    pos_hint: {'x':0.26, 'top':0.88}
+
+        #CusButton:
+        #    id: object_1_cam
+        #    pos_hint: {'x':0.43, 'top':0.88}
+        #    on_release: root.show_dropdown_object1_cam()
+        #    on_touch_move: root.touch_move_object1_cam()
+
+        CustextInput:
+            id: txtinput_camera_1
+            pos_hint: {'x':0.43, 'top':0.88}
+
+        CustextInput:
+            id: txtinput_ip_1
+            pos_hint: {'x':0.6, 'top':0.88}
+
+        CustextInput:
+            id: txtinput_observ_time_1
+            pos_hint: {'x':0.77, 'top':0.88}
+
+        # third row
+
+        CusLabel:
+            text: 'Observation object 2'
+            pos_hint: {'x':0.05, 'top':0.9}
+        CusCheckBox:
+            id: checkbox_2
+            pos_hint: {'x':0.2, 'top':.78}
+
+        #CusButton:
+        #    id: object_2_type
+        #    pos_hint: {'x':0.26, 'top':0.78}
+        #    on_release: root.show_dropdown_object2_type()
+        #    on_touch_move: root.touch_move_object2_cam()
+
+        CustextInput:
+            id: txtinput_observ_2
+            pos_hint: {'x':0.26, 'top':0.78}
+
+        CustextInput:
+            id: txtinput_camera_2
+            pos_hint: {'x':0.43, 'top':0.78}
+
+        CustextInput:
+            id: txtinput_ip_2
+            pos_hint: {'x':0.6, 'top':0.78}
+
+        CustextInput:
+            id: txtinput_observ_time_2
+            pos_hint: {'x':0.77, 'top':0.78}
+
+        # fourth row
+        CusLabel:
+            text: 'Observation folder'
+            pos_hint: {'x':0.05, 'top':0.8}
+        CusCheckBox:
+            id: checkbox_3
+            pos_hint: {'x':0.2, 'top':.68}
+
+        CustextInput:
+            id: txtinput_observ_folder
+            size_hint_x: 0.29
+            pos_hint: {'x':0.26, 'top':0.68}
+        Button:
+            id: button_browse
+            text: '...'
+            size_hint: 0.03, 0.05
+            pos_hint: {'x':0.55, 'top':0.68}
+
+        CustextInput:
+            id: txtinput_observ_time_3
+            pos_hint: {'x':0.77, 'top':0.68}
+
+        # second Box
+        CusLabel:
+            text: 'SMTP Server'
+            pos_hint: {'x':0.05, 'top':0.65}
+        CustextInput:
+            id: txtinput_smtp
+            size_hint_x: 0.32
+            pos_hint: {'x':0.26, 'top':0.52}
+
+        CusLabel:
+            text: 'Mail Address'
+            pos_hint: {'x':0.05, 'top':0.55}
+        CustextInput:
+            id: txtinput_mail
+            size_hint_x: 0.32
+            pos_hint: {'x':0.26, 'top':0.42}
+
+        CusLabel:
+            text: 'Password'
+            pos_hint: {'x':0.05, 'top':0.45}
+        CustextInput:
+            id: txtinput_password
+            size_hint_x: 0.32
+            pos_hint: {'x':0.26, 'top':0.32}
+
+        #CusLabel:
+        #    text: 'Password'
+        #    pos_hint: {'x':0.05, 'top':0.35}
+        #CustextInput:
+        #    id: txtinput_password
+        #    size_hint_x: 0.32
+        #    pos_hint: {'x':0.26, 'top':0.22}
+
+        Button:
+            size_hint: 0.15, 0.05
+            pos_hint: {'x':0.6, 'y':0.05}
+            text: 'Back'
+            id: bt_back
+            on_press: root.save()
+
+        Button:
+            size_hint: 0.15, 0.05
+            pos_hint: {'x':0.8, 'y':0.05}
+            text: 'Save'
+            id: bt_save
+            on_press: root.save()
