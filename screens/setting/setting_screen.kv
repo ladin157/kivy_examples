@@ -79,8 +79,12 @@
         #    on_touch_move: root.touch_move_cam1()
 
         ComboEdit:
+            canvas:
+                Ellipse:
+                    pos: self.pos
+                    size: self.size
             size_hint: .15, .05
-            pos_hint: {'x': .26, 'y': .88}
+            pos_hint: {'x': .26, 'y': .83}
             options:
                 [Button(text = str(x), size_hint_y=None, height=30) for x in range(3)]
 
@@ -94,9 +98,14 @@
         #    on_release: root.show_dropdown_object1_cam()
         #    on_touch_move: root.touch_move_object1_cam()
 
-        CustextInput:
-            id: txtinput_camera_1
-            pos_hint: {'x':0.43, 'top':0.88}
+        ComboEdit:
+            size_hint: .15, .05
+            pos_hint: {'x': .43, 'y': .83}
+            options:
+                [Button(text = '1', size_hint_y=None, height=30), Button(text = '2', size_hint_y=None, height=30)]
+        #CustextInput:
+        #    id: txtinput_camera_1
+        #    pos_hint: {'x':0.43, 'top':0.88}
 
         CustextInput:
             id: txtinput_ip_1

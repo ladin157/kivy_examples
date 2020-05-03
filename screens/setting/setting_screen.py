@@ -6,6 +6,7 @@ from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
 from kivy.uix.screenmanager import Screen
 from kivy.uix.textinput import TextInput
+from kivy.graphics import Color, Triangle
 
 
 class ComboBox(TextInput):
@@ -44,6 +45,18 @@ class ComboEdit(TextInput):
         ddn = self.drop_down = DropDown()
         ddn.bind(on_select=self.on_select)
         super(ComboEdit, self).__init__(**kw)
+        with self.canvas:
+            Color(1, 1, 0)
+            d = 50.
+            # Ellipse(pos=(touch.x - d / 2.0, touch.y - d / 2.0), size=(d, d))
+            # Rectangle(pos=(touch.x - d / 2.0, touch.y - d / 2.0), size=(d, d))
+            x = self.width
+            y = self.height
+            print('x: ', x, 'y: ', y)
+            x_pos, y_pos = self.pos
+            print('x_pos: ', x_pos, ', y_pos: ', y_pos)
+            # Triangle(points=[x - d / 2, y + d / 2, x + d / 2, y + d / 2, x, y - d / 2])
+            Triangle(points = [0.6, 0.8, 0.8, 0.8, 0.65 , 0.6])
 
     def on_options(self, instance, value):
         ddn = self.drop_down
@@ -69,6 +82,8 @@ class SettingScreen(Screen):
         for id in self.ids:
             print(id)
         # self.init_dropdowns()
+        # print(self.width, self.height, self.pos)
+
 
     # def init_dropdowns(self):
     #     dropdown = CustomDropDown()
@@ -166,12 +181,12 @@ class SettingScreen(Screen):
         if password is not None and not str(password).strip().__eq__(''):
             items['password'] = password
 
-        setting = SettingOperation()
-        result, message = setting.add(Object=None, items=items)
-        if result:
-            Logger.infor(message)
-        else:
-            Logger.error(message)
+        # setting = SettingOperation()
+        # result, message = setting.add(Object=None, items=items)
+        # if result:
+        #     Logger.infor(message)
+        # else:
+        #     Logger.error(message)
 
     def browse(self):
         pass
