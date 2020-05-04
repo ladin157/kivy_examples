@@ -1,0 +1,26 @@
+<Recognition>:
+    id: root_layout
+    camera_id: camera
+
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint_y: 0.8
+            Camera:
+                id: camera
+                #allow_stretch: True
+                index : root_layout.camera_index #1: Plugged camera
+                resolution: (640, 480)
+                play: True
+
+        BoxLayout:
+            size_hint_y: 0.2
+            ToggleButton:
+                size_hint_x: 0.5
+                #pos_hint: {'x':0, 'y':0}
+                text: 'Play/Stop'
+                on_press: camera.play = not camera.play
+            Button:
+                size_hint_x: 0.5
+                text: 'Recognize/Stop'
+                on_press: root.recognize()
