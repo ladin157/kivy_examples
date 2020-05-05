@@ -1,5 +1,5 @@
 import datetime
-import threading
+import kivy_threading
 import time
 
 from kivy.app import App
@@ -114,7 +114,7 @@ class RealtimeScreen(Screen):
     #     camera.export_to_png("images/Capture/IMG_{}.png".format(timestr))
     #     Logger.info('Application: Capture a image from camera.')
     #     Logger.info('Application: Create and start thread for face recognition.')
-    #     face_rec_t = threading.Thread(target=face_recognition.facerec_from_webcam, args=(1,))
+    #     face_rec_t = kivy_threading.Thread(target=face_recognition.facerec_from_webcam, args=(1,))
     #     face_rec_t.daemon = True  # kill thread on app close
     #     face_rec_t.start()
     #

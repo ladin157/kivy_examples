@@ -76,7 +76,7 @@ class ComboEdit(TextInput):
 
 class SettingScreen(Screen):
 
-    # Callback for the checkbox
+    # Callback for the checkboxes
     def __init__(self, **kwargs):
         super(SettingScreen, self).__init__(**kwargs)
         for id in self.ids:
