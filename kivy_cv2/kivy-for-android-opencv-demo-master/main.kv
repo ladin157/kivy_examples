@@ -1,0 +1,28 @@
+<MyLayout>:
+    orientation:'vertical'
+    padding:(36,36)
+
+    Label:
+        text:'opencv demo'
+        halign:'left'
+        valign:'top'
+        size_hint:(1,None)
+        height:'48dp'
+    Camera2:
+        #index:0
+        #resolution:(960,720)
+        #id:camera
+        #play:True
+        id: camera
+        allow_stretch: True
+        #index : root_layout.cameraId #1: Plugged camera
+        resolution: (640, 480) # Camera 1 not support (1280, 720)
+        play: True
+    Label:
+        id:label
+        halign:'left'
+        valign:'top'
+        size_hint:(1,None)
+        height:'48dp'
+    Label:
+
